@@ -1,0 +1,85 @@
+#Navbar{
+    display: grid;
+
+    width: 100vw;
+    height: 300px;
+
+    grid-template-rows: 250px;
+
+    background-image: linear-gradient(rgb(68, 68, 68), black)
+}
+
+#Cart{
+    display: grid;
+
+    height: 50px;
+    width: 100px;
+
+    align-items: center;
+    justify-items: center;
+
+    color: white;
+
+    grid-row-start: 2;
+    grid-column-start: 1;
+    justify-self: end;
+
+    font-size: 17px;
+
+    margin-right: 10px;
+}
+#Cart:hover{
+    border-style: solid;
+    border-width: 1px;
+}
+
+#Logo{
+    display: grid;
+
+    align-self: center;
+    justify-self: center;
+
+    max-height: 250px;
+}
+
+#ProductDisplay{
+    display: grid;
+
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3,auto);
+}
+
+#Product{
+    height: 400px;
+    width: 200px;
+}
+
+.Navlist{
+    display: grid;
+
+    height: 50px;
+    width: 100px;
+
+    float: left;
+
+    align-items: center;
+    justify-items: center;
+
+    color: white;
+    font-size: 17px;
+}
+
+.Navlist:hover{
+    border-style: solid;
+    border-width: 1px;
+}
+
+ul{
+    grid-row-start: 2;
+    grid-column-start: 1;
+
+    list-style-type: none;
+
+    margin: 0;
+    align-self: flex-end;
+}
