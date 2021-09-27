@@ -14,7 +14,7 @@ function App() {
   const [count5, setCount5] = useState(1);
   const [count6, setCount6] = useState(1);
 
-  const [cart, setCart] = useState({})
+  const [cart, setCart] = useState([])
 
   const price1 = 100;
   const price2 = 110;
@@ -22,6 +22,13 @@ function App() {
   const price4 = 65;
   const price5 = 123;
   const price6 = 30;
+
+  const name1 = 'Beefy Surprise';
+  const name2 = 'Mutton Muncher';
+  const name3 = 'Chicken Chomper';
+  const name4 = 'The Big Cornish';
+  const name5 = 'Ye Olde Sausage';
+  const name6 = 'Ode to Pie';
 
   //SetState Functions
 
@@ -87,8 +94,40 @@ function App() {
     };
   };
 
-  useEffect(() => {
+    //Add to Cart Functions
 
+  const addToCart1 = () => {
+    let theCart = cart.concat({name: name1, price: price1, quantity: count1})
+    setCart(theCart);
+  };
+
+  const addToCart2 = () => {
+    let theCart = cart.concat({name: name2, price: price2, quantity: count2})
+    setCart(theCart);
+  };
+
+  const addToCart3 = () => {
+    let theCart = cart.concat({name: name3, price: price3, quantity: count3})
+    setCart(theCart);
+  };
+
+  const addToCart4 = () => {
+    let theCart = cart.concat({name: name4, price: price4, quantity: count4})
+    setCart(theCart);
+  };
+
+  const addToCart5 = () => {
+    let theCart = cart.concat({name: name5, price: price5, quantity: count5})
+    setCart(theCart);
+  };
+
+  const addToCart6 = () => {
+    let theCart = cart.concat({name: name6, price: price6, quantity: count6})
+    setCart(theCart);
+  };
+
+  useEffect(() => {
+    console.log(cart);
   });
 
   return (
@@ -133,6 +172,13 @@ function App() {
                   NupdateCount4 = {negUpdateCount4}
                   NupdateCount5 = {negUpdateCount5}
                   NupdateCount6 = {negUpdateCount6}
+
+                  addToCart1 = {addToCart1}
+                  addToCart2 = {addToCart2}
+                  addToCart3 = {addToCart3}
+                  addToCart4 = {addToCart4}
+                  addToCart5 = {addToCart5}
+                  addToCart6 = {addToCart6}
                 ></Products>}/>
         </Switch>
       </BrowserRouter>
