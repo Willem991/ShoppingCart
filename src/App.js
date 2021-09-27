@@ -107,8 +107,15 @@ function App() {
 
     //Add to Cart Functions
 
+  const removeFromCart = (e) => {
+    let indexVal = e.target.id -1
+    let newCart = cart;
+    newCart.splice(indexVal,1);
+    setCart(newCart);
+    setBtnPressed(true);
+  };  
+
   const CartChecker = () => {
-    let iVal = cart.length - 1;
     let i = 0;
 
     let maxPrice = cart.reduce((mPrice, item) => {
@@ -121,14 +128,16 @@ function App() {
 
     let productArray = cart.map((item) => {
       i++
-      return (<div key = {i}>
+      return (<div id='CartProduct' key = {i}>
                 <p>Item: {item.name}</p>
                 <p>Quantity: {item.quantity}</p>
                 <p>Price: {item.price*item.quantity}</p>
+                <button id = {i} onClick = {(e) => {removeFromCart(e);}}>Remove</button>
               </div>)
     });
   
     setCartDisplay(productArray);
+
   };   
 
   const addToCart1 = () => {
@@ -170,6 +179,7 @@ function App() {
 
   useEffect(() => {
     if(btnPressed === true){
+      console.log(cart)
       setBtnPressed(false);
       CartChecker();
     };

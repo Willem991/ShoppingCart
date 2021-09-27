@@ -35,6 +35,11 @@
     border-width: 1px;
 }
 
+#CartProduct{
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+}
+
 #Logo{
     display: grid;
 
