@@ -4,6 +4,14 @@ import Homepage from "./Components/HomePage";
 import Navbar from "./Components/Navbar";
 import Products from "./Components/Products";
 import { useState } from "react";
+import Cart from "./Components/Cart";
+
+import Pie1 from './Components/Images/Pie11.png';
+import Pie2 from './Components/Images/Pie21.png';
+import Pie3 from './Components/Images/Pie31.png';
+import Pie4 from './Components/Images/Pie41.png';
+import Pie5 from './Components/Images/Pie51.png';
+import Pie6 from './Components/Images/Pie61.png';
 
 function App() {
 
@@ -15,6 +23,9 @@ function App() {
   const [count6, setCount6] = useState(1);
 
   const [cart, setCart] = useState([])
+  const [cartDisplay, setCartDisplay] = useState([]);
+  const [btnPressed, setBtnPressed] = useState(false);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const price1 = 100;
   const price2 = 110;
@@ -96,38 +107,72 @@ function App() {
 
     //Add to Cart Functions
 
+  const CartChecker = () => {
+    let iVal = cart.length - 1;
+    let i = 0;
+
+    let maxPrice = cart.reduce((mPrice, item) => {
+      mPrice = mPrice + item.price*item.quantity;
+      return mPrice;
+
+    },0);
+
+    setTotalPrice(maxPrice);
+
+    let productArray = cart.map((item) => {
+      i++
+      return (<div key = {i}>
+                <p>Item: {item.name}</p>
+                <p>Quantity: {item.quantity}</p>
+                <p>Price: {item.price*item.quantity}</p>
+              </div>)
+    });
+  
+    setCartDisplay(productArray);
+  };   
+
   const addToCart1 = () => {
-    let theCart = cart.concat({name: name1, price: price1, quantity: count1})
+    let theCart = cart.concat({name: name1, price: price1, quantity: count1});
     setCart(theCart);
+    setBtnPressed(true);
   };
 
   const addToCart2 = () => {
     let theCart = cart.concat({name: name2, price: price2, quantity: count2})
     setCart(theCart);
+    setBtnPressed(true);
   };
 
   const addToCart3 = () => {
     let theCart = cart.concat({name: name3, price: price3, quantity: count3})
     setCart(theCart);
+    setBtnPressed(true);
   };
 
   const addToCart4 = () => {
     let theCart = cart.concat({name: name4, price: price4, quantity: count4})
     setCart(theCart);
+    setBtnPressed(true);
   };
 
   const addToCart5 = () => {
     let theCart = cart.concat({name: name5, price: price5, quantity: count5})
     setCart(theCart);
+    setBtnPressed(true);
   };
 
   const addToCart6 = () => {
     let theCart = cart.concat({name: name6, price: price6, quantity: count6})
     setCart(theCart);
+    setBtnPressed(true);
   };
 
+
   useEffect(() => {
-    console.log(cart);
+    if(btnPressed === true){
+      setBtnPressed(false);
+      CartChecker();
+    };
   });
 
   return (
@@ -136,6 +181,7 @@ function App() {
         <Navbar></Navbar>
         <Switch>
           <Route exact path = '/' component = {Homepage}/>
+          <Route path = '/Cart' render = {() => <Cart price = {totalPrice} cart = {cartDisplay}></Cart>} />
           <Route path = '/Products' isAuthed={true}
                 render =  {(props) => <Products 
                   price1 = {price1}
@@ -145,12 +191,19 @@ function App() {
                   price5 = {price5}
                   price6 = {price6}
 
-                  name1 = "Hi"
-                  name2 = "Hi"
-                  name3 = "Hi"
-                  name4 = "Hi"
-                  name5 = "Hi"
-                  name6 = "Hi"
+                  image1 = {Pie1}
+                  image2 = {Pie2}
+                  image3 = {Pie3}
+                  image4 = {Pie4}
+                  image5 = {Pie6}
+                  image6 = {Pie5}
+
+                  name1 = {name1}
+                  name2 = {name2}
+                  name3 = {name3}
+                  name4 = {name4}
+                  name5 = {name5}
+                  name6 = {name6}
 
                   counter1 = {count1}
                   counter2 = {count2}

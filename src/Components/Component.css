@@ -27,6 +27,8 @@
     font-size: 17px;
 
     margin-right: 10px;
+
+    text-decoration: none;
 }
 #Cart:hover{
     border-style: solid;
@@ -50,8 +52,46 @@
 }
 
 #Product{
-    height: 400px;
-    width: 200px;
+    display: grid;
+    grid-template-rows: 400px 25px 25px 25px 25px;
+    align-items: center;
+    justify-items: center;
+
+    border-style: solid;
+    border-radius: 10px;
+
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 500px;
+    width: 300px;
+}
+
+#plus{
+    display: grid;
+    grid-column-start: 1;
+    grid-row-start: 3;
+
+    justify-self: end;
+
+    margin-right: 100px;
+}
+
+#counter{
+    display: grid;
+    grid-column-start: 1;
+    grid-row-start: 3;
+}
+
+#minus{
+    display: grid;
+    grid-column-start: 1;
+    grid-row-start: 3;
+
+    justify-self: start;
+
+    margin-left: 100px;
 }
 
 .Navlist{

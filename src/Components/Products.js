@@ -1,15 +1,16 @@
 import React from "react";
 import './Component.css'
 
+
 const Product = (props) => {
     return(
         <div id = 'Product'>
             <img src = {props.image} alt='product'/>
-            <h4>{props.name}</h4>
+            <h4 id='productname'>{props.name}</h4>
             <button id='minus'onClick = {props.NupdateCount} >-</button>
-            <p>{props.counter}</p>
+            <p id= 'counter'>{props.counter}</p>
             <button id='plus' onClick = {props.updateCount} >+</button>
-            <p>{props.price*props.counter}</p>
+            <p id= 'price'>{props.price*props.counter}</p>
             <button id='add' onClick = {props.addToCart}>Add to Cart</button>
         </div>
     );

@@ -16,7 +16,9 @@ const Navbar = () => {
                     <li className='Navlist' key='LI02'>Products</li>
                 </Link> 
             </ul>
-            <div id='Cart'>Cart</div>
+            <Link id='Cart' to ='/Cart'>
+                <div>Cart</div>
+            </Link>
         </div>
     );
 };
